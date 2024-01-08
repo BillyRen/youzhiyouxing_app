@@ -16,7 +16,7 @@ import time
 import logging
 
 #define the app title
-st.set_page_config(page_title="有知有行问答机器人",page_icon=':books:')
+st.set_page_config(page_title="有知有行投资问答机器人",page_icon=':books:')
 
 ###functions
 
@@ -83,7 +83,7 @@ def main():
     st.write(
     f"""
     <div style="display: flex; align-items: center; margin-left: 0;">
-        <h1 style="display: inline-block;">有知有行问答机器人</h1>
+        <h1 style="display: inline-block;">有知有行投资问答机器人</h1>
     </div>
     """,
     unsafe_allow_html=True,
