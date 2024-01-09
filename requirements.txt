@@ -1,4 +1,6 @@
-langchain==0.1.0
+langchain==0.0.354
+langchain-community==0.0.8
+faiss-cpu==1.7.4
 numpy==1.26.3
 openai==0.27.0
 pandas==1.4.2
