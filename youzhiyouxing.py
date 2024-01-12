@@ -44,7 +44,6 @@ def main():
         <style>
         #MainMenu {visibility: hidden;}
         footer {visibility: hidden;}
-        .css-1y0tads {display: none !important;}
         </style>
         """,
         unsafe_allow_html=True,
