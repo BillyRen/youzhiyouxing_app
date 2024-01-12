@@ -7,6 +7,7 @@ import numpy as np
 import streamlit as st
 #langchain. Version used: -> pip3 install 'langchain==0.0.181'
 import PyPDF2
+#import fitz
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores.faiss import FAISS
@@ -33,6 +34,17 @@ def load_pdf(file):
         for page in pdf_reader.pages:
             text += page.extract_text()                
     return text
+
+# use fitz to read pdf
+# @st.cache_data
+# def load_pdf(file): 
+#     file_extension = os.path.splitext(file.name)[1]
+#     if file_extension == ".pdf":
+#         pdf_reader = fitz.open(file)
+#         text = ""
+#         for page in pdf_reader:
+#             text += page.getText()
+#     return text
 #####
 
 #cache model
@@ -133,8 +145,8 @@ def main():
     openai_api_key = default_api_key
 
 #these allow to choose chunk size and overlap 
-    chunk_size = st.sidebar.number_input('Please enter the chunk size (number of characters)', value=800)
-    overlap_size = st.sidebar.number_input('Please enter the overlap between chunks (number of characters)', value=100)
+    chunk_size = st.sidebar.number_input('Please enter the chunk size (number of characters)', value=20000)
+    overlap_size = st.sidebar.number_input('Please enter the overlap between chunks (number of characters)', value=2000)
 
 # #Logic to upload/update pdf.
 #     #if no file has been uploaded, print a warning
@@ -154,7 +166,8 @@ def main():
     #Logic to read pdf.
     # set the path to the pdf file
     #pdf_path = 'data/youzhiyouxing_test_2.pdf'
-    pdf_path = 'data/youzhiyouxing_v1.0.pdf' 
+    #pdf_path = 'data/youzhiyouxing_v1.0.pdf' 
+    pdf_path = 'data/youzhiyouxing_v2.0.pdf' 
 
     # check if the file exists
     if not os.path.exists(pdf_path):
